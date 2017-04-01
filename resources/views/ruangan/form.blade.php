@@ -1,7 +1,6 @@
 <div class="form-group">
-	<label class="col-sm-2 control-label">Tittle</label>
+	<label class="col-sm-2 control-label">title</label>
 	<div class="col-sm-10">
-		{!! Form::text('tittle',null,['class'=>'form-control','placeholder'=>"tittle"])!!}
-	</div>
+		{!! Form::text('title',null,['class'=>'form-control','placeholder'=>"title"]) !!}
+		</div>
 </div>
-

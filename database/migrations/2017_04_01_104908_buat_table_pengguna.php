@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Pengguna extends Migration
+class BuatTablePengguna extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class Pengguna extends Migration
     public function up()
     {
         Schema::create('pengguna', function (Blueprint $table) {
-            $table->increments('id');
+           $table->increments('id');
             $table->string('username');
             $table->string('password');
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

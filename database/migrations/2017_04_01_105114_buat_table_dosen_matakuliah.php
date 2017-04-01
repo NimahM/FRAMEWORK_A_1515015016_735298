@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DosenMatakuliah extends Migration
+class BuatTableDosenMatakuliah extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class DosenMatakuliah extends Migration
     public function up()
     {
         Schema::create('dosen_matakuliah', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('doosen_id',false,true);
-            $table->foreign('doosen_id')->references('id')->on('doosen')->onDelete('cascade')->onUpdate('cascade');
+             $table->increments('id');
+            $table->integer('dosen_id',false,true);
+            $table->foreign('dosen_id')->references('id')->on('dosen')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('matakuliah_id',false,true);
             $table->foreign('matakuliah_id')->references('id')->on('matakuliah')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

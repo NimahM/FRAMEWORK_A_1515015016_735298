@@ -32,13 +32,14 @@
 
             .title {
                 font-size: 50px;
+                   font-weight: 100;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Nama : Ni'mah Moham <br> Nim : 1515015016</div> 
+                <div class="title">Nama : Ni'mah Moham <br>Nim  : 1515015016</div>
             </div>
         </div>
     </body>

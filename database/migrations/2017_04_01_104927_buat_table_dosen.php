@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Doosen extends Migration
+class BuatTableDosen extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,14 @@ class Doosen extends Migration
      */
     public function up()
     {
-        Schema::create('doosen', function (Blueprint $table) {
-           $table->increments('id');
-            $table->string('nama');
-            $table->string('nip');
+        Schema::create('dosen', function (Blueprint $table) {
+          $table->increments('id');
+            $table->string('nama',50);
+            $table->string('nip',18);
             $table->text('alamat');
             $table->integer('pengguna_id',false,true);
             $table->foreign('pengguna_id')->references('id')->on('pengguna')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ class Doosen extends Migration
      */
     public function down()
     {
-        Schema::drop('doosen');
+        Schema::drop('dosen');
     }
 }
