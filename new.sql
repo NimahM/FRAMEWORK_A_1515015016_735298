@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2017 at 02:07 PM
+-- Generation Time: Apr 08, 2017 at 12:58 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -34,7 +34,15 @@ CREATE TABLE IF NOT EXISTS `dosen` (
   `pengguna_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`id`, `nama`, `nip`, `alamat`, `pengguna_id`, `created_at`, `updated_at`) VALUES
+(1, 'Kim Nam Joon ', '3993828282', 'korea', 1, '2017-04-08 00:35:29', '2017-04-08 02:39:43'),
+(2, 'kim Tae Hyung', '4243355555', 'seoul', 4, '2017-04-08 02:55:16', '2017-04-08 02:55:16');
 
 -- --------------------------------------------------------
 
@@ -48,7 +56,15 @@ CREATE TABLE IF NOT EXISTS `dosen_matakuliah` (
   `matakuliah_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `dosen_matakuliah`
+--
+
+INSERT INTO `dosen_matakuliah` (`id`, `dosen_id`, `matakuliah_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2017-04-08 01:53:39', '2017-04-08 02:41:17'),
+(2, 2, 3, '2017-04-08 02:55:36', '2017-04-08 02:55:36');
 
 -- --------------------------------------------------------
 
@@ -63,7 +79,15 @@ CREATE TABLE IF NOT EXISTS `jadwal_matakuliah` (
   `dosen_matakuliah_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `jadwal_matakuliah`
+--
+
+INSERT INTO `jadwal_matakuliah` (`id`, `mahasiswa_id`, `ruangan_id`, `dosen_matakuliah_id`, `created_at`, `updated_at`) VALUES
+(11, 5, 2, 2, '2017-04-08 02:39:00', '2017-04-08 02:55:52'),
+(13, 7, 1, 1, '2017-04-08 02:49:55', '2017-04-08 02:56:10');
 
 -- --------------------------------------------------------
 
@@ -79,7 +103,15 @@ CREATE TABLE IF NOT EXISTS `mahasiswa` (
   `pengguna_id` int(10) unsigned NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id`, `nama`, `nim`, `alamat`, `pengguna_id`, `created_at`, `updated_at`) VALUES
+(5, '전중국', '1515161617', 'incheon', 2, '2017-04-08 02:38:18', '2017-04-08 02:38:18'),
+(7, '박지민', '156156156', 'incheon', 3, '2017-04-08 02:49:33', '2017-04-08 02:49:33');
 
 -- --------------------------------------------------------
 
@@ -93,14 +125,15 @@ CREATE TABLE IF NOT EXISTS `matakuliah` (
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `matakuliah`
 --
 
 INSERT INTO `matakuliah` (`id`, `title`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, 'Framework', 'Hari Senin pukul 08.00 - 10.00', '2017-04-01 03:53:32', '2017-04-01 03:53:32');
+(1, 'Framework (Praktikum)', 'Hari Kamis pukul 07.30 - 09.00  ', '2017-04-01 03:53:32', '2017-04-01 05:04:55'),
+(3, 'Musik', 'Hari Selasa Pukul 08.30-10.00', '2017-04-08 02:53:18', '2017-04-08 02:53:39');
 
 -- --------------------------------------------------------
 
@@ -153,15 +186,17 @@ CREATE TABLE IF NOT EXISTS `pengguna` (
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`id`, `username`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'ni''mah moham', '1234567890', NULL, '2017-04-01 03:51:35', '2017-04-01 03:51:35'),
-(4, 'susanti', '0987654321', NULL, '2017-04-01 03:51:50', '2017-04-01 03:51:50');
+(1, 'lee jun ki', 'junki', NULL, '2017-04-08 00:35:29', '2017-04-08 02:40:20'),
+(2, 'jungkook', 'jeon', NULL, '2017-04-08 02:38:18', '2017-04-08 02:38:18'),
+(3, 'Park Jimin', 'jimin', NULL, '2017-04-08 02:49:33', '2017-04-08 02:49:33'),
+(4, 'Taehyung', 'theodor', NULL, '2017-04-08 02:55:16', '2017-04-08 02:55:16');
 
 -- --------------------------------------------------------
 
@@ -267,32 +302,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `dosen`
 --
 ALTER TABLE `dosen`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `dosen_matakuliah`
 --
 ALTER TABLE `dosen_matakuliah`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `jadwal_matakuliah`
 --
 ALTER TABLE `jadwal_matakuliah`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `matakuliah`
 --
 ALTER TABLE `matakuliah`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `ruangan`
 --
@@ -317,7 +352,6 @@ ADD CONSTRAINT `dosen_pengguna_id_foreign` FOREIGN KEY (`pengguna_id`) REFERENCE
 -- Constraints for table `dosen_matakuliah`
 --
 ALTER TABLE `dosen_matakuliah`
-ADD CONSTRAINT `dosen_matakuliah_dosen_id_foreign` FOREIGN KEY (`dosen_id`) REFERENCES `dosen` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `dosen_matakuliah_matakuliah_id_foreign` FOREIGN KEY (`matakuliah_id`) REFERENCES `matakuliah` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
