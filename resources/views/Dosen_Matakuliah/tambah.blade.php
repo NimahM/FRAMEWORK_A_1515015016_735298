@@ -6,8 +6,8 @@
 	<i style="color:white;" class="fa text-default fa-chevron-left"></i></a>
 	Tambah Data Dosen Pengajar</strong>
 	</div>
-		{!! Form::open(['class' => 'form-horizontal','url'=>'dosen_matakuliah/simpan']) !!}
-		@include('dosen_matakuliah.form', ['submit_text' => 'Tambah Data'])
+		{!! Form::open(['url'=>'dosen_matakuliah/simpan','class'=>'form-horizontal']) !!}
+		@include('dosen_matakuliah.form')
 		<div style="width: 100%;text-align: right;">
 				<button class="btn btn-primary"><i class="fa fa-save"></i>Simpan</button>
 				<button class="btn btn-danger"><i class="fa fa-undo"></i>Ulangi</button>
